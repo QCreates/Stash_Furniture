@@ -1,71 +1,20 @@
-from rest_framework import viewsets
-from .models import *
-from .serializers import *
+from django.shortcuts import render
 
-class DimSupplierViewSet(viewsets.ModelViewSet):
-    queryset = DimSupplier.objects.all()
-    serializer_class = DimSupplierSerializer
+# Generic view function factory to generate simple page views with custom titles
+def simple_table_view_factory(table_title):
+    def view(request):
+        return render(request, 'api/simple_table.html', {'title': table_title})
+    return view
 
-class DimCategoryViewSet(viewsets.ModelViewSet):
-    queryset = DimCategory.objects.all()
-    serializer_class = DimCategorySerializer
-
-class DimProductViewSet(viewsets.ModelViewSet):
-    queryset = DimProduct.objects.all()
-    serializer_class = DimProductSerializer
-
-class DimProductImageViewSet(viewsets.ModelViewSet):
-    queryset = DimProductImage.objects.all()
-    serializer_class = DimProductImageSerializer
-
-class DimCustomerViewSet(viewsets.ModelViewSet):
-    queryset = DimCustomer.objects.all()
-    serializer_class = DimCustomerSerializer
-
-class DimEmployeeViewSet(viewsets.ModelViewSet):
-    queryset = DimEmployee.objects.all()
-    serializer_class = DimEmployeeSerializer
-
-class DimPaymentMethodViewSet(viewsets.ModelViewSet):
-    queryset = DimPaymentMethod.objects.all()
-    serializer_class = DimPaymentMethodSerializer
-
-class DimMovementReferenceViewSet(viewsets.ModelViewSet):
-    queryset = DimMovementReference.objects.all()
-    serializer_class = DimMovementReferenceSerializer
-
-class DimPurchaseOrderViewSet(viewsets.ModelViewSet):
-    queryset = DimPurchaseOrder.objects.all()
-    serializer_class = DimPurchaseOrderSerializer
-
-class FactPOItemViewSet(viewsets.ModelViewSet):
-    queryset = FactPOItem.objects.all()
-    serializer_class = FactPOItemSerializer
-
-class FactInvoiceViewSet(viewsets.ModelViewSet):
-    queryset = FactInvoice.objects.all()
-    serializer_class = FactInvoiceSerializer
-
-class FactInvoiceItemViewSet(viewsets.ModelViewSet):
-    queryset = FactInvoiceItem.objects.all()
-    serializer_class = FactInvoiceItemSerializer
-
-class FactPaymentItemViewSet(viewsets.ModelViewSet):
-    queryset = FactPaymentItem.objects.all()
-    serializer_class = FactPaymentItemSerializer
-
-class FactShipmentViewSet(viewsets.ModelViewSet):
-    queryset = FactShipment.objects.all()
-    serializer_class = FactShipmentSerializer
-
-class FactShipmentItemViewSet(viewsets.ModelViewSet):
-    queryset = FactShipmentItem.objects.all()
-    serializer_class = FactShipmentItemSerializer
-
-class FactInventoryMovementViewSet(viewsets.ModelViewSet):
-    queryset = FactInventoryMovement.objects.all()
-    serializer_class = FactInventoryMovementSerializer
-
-class FactReturnViewSet(viewsets.ModelViewSet):
-    queryset = FactReturn.objects.all()
-    serializer_class = FactReturnSerializer
+# Create views for each table
+dim_suppliers_view = simple_table_view_factory('Suppliers')
+dim_categories_view = simple_table_view_factory('Categories')
+dim_products_view = simple_table_view_factory('Products')
+dim_customers_view = simple_table_view_factory('Customers')
+dim_employees_view = simple_table_view_factory('Employees')
+dim_payment_methods_view = simple_table_view_factory('Payment Methods')
+dim_purchase_orders_view = simple_table_view_factory('Purchase Orders')
+fact_invoices_view = simple_table_view_factory('Invoices')
+fact_returns_view = simple_table_view_factory('Returns')
+fact_shipments_view = simple_table_view_factory('Shipments')
+# Add more as needed

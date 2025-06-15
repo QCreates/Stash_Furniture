@@ -1,0 +1,64 @@
+{% load static %}
+<!-- templates/api/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Warehouse Admin{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'api/css/index.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body class="root dark">
+
+    <h1 class="title">{% block heading %}Warehouse Admin{% endblock %}</h1>
+
+    <nav class="navbar">
+    <a href="{% url 'home' %}">
+        <img src="{% static 'api/images/dashboard.png' %}" alt="Dashboard Icon" class="nav-icon" />
+        Dashboard
+    </a>
+    <a href="{% url 'page-products' %}">
+        <img src="{% static 'api/images/products.png' %}" alt="Products Icon" class="nav-icon" />
+        Products
+    </a>
+    <!-- <a href="{% url 'page-categories' %}">
+        <img src="{% static 'api/images/categories.png' %}" alt="Categories Icon" class="nav-icon" />
+        Categories
+    </a> -->
+    <a href="{% url 'page-suppliers' %}">
+        <img src="{% static 'api/images/suppliers.png' %}" alt="Suppliers Icon" class="nav-icon" />
+        Suppliers
+    </a>
+    <a href="{% url 'page-purchase-orders' %}">
+        <img src="{% static 'api/images/pos.png' %}" alt="Purchase Orders Icon" class="nav-icon" />
+        PO's
+    </a>
+    <a href="{% url 'page-customers' %}">
+        <img src="{% static 'api/images/customers.png' %}" alt="Customers Icon" class="nav-icon" />
+        Customers
+    </a>
+    <a href="{% url 'page-employees' %}">
+        <img src="{% static 'api/images/salespeople.png' %}" alt="Employees Icon" class="nav-icon" />
+        Employees
+    </a>
+    <a href="{% url 'page-invoices' %}">
+        <img src="{% static 'api/images/invoices.png' %}" alt="Invoices Icon" class="nav-icon" />
+        Invoices
+    </a>
+    <!-- <a href="{% url 'page-payment-methods' %}">
+        <img src="{% static 'api/images/payment-methods.png' %}" alt="Payment Methods Icon" class="nav-icon" />
+        Payment Methods
+    </a> -->
+    <a href="{% url 'page-returns' %}">
+        <img src="{% static 'api/images/reports.png' %}" alt="Returns Icon" class="nav-icon" />
+        Returns
+    </a>
+    <a href="{% url 'page-shipments' %}" >
+        <img src="{% static 'api/images/shipments.png' %}" alt="Shipments Icon" class="nav-icon" />
+        Shipments
+    </a>
+    </nav>
+
+  {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,89 @@
+/* api/static/api/css/index.css */
+.root {
+    --thick-font: 600;
+    --mdm-font: 300;
+    --thin-font: 100;
+}
+
+.root.light {
+  --bg-color: #fff;
+  --text-color: #333333;
+  --link-bg-color: #1a599436;
+  --link-color: #808080;
+  --link-hover-color: #0056b3;
+  --link-bg-hover-color: #a0a0a0;
+  --link-hover-color: #ffffff;
+  --shadow-color: #777;
+  /* Add more variables as needed */
+}
+
+.root.dark {
+  --bg-color: #242424;
+  --text-color: #eeeeee;
+  --link-bg-color: #808080;
+  --link-color: #e8ecea;
+  --link-bg-hover-color: #58636d;
+  --link-hover-color: #88adce;
+  --shadow-color: #000;
+  /* Add more variables as needed */
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+}
+
+h1.title {
+    background-color: #ffffff09;
+    box-shadow: inset var(--shadow-color) 1px 3px 5px -1px;
+    padding: 5px 0 5px;
+
+    font-weight: var(--mdm-font);
+    text-align: center;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 5px;
+    gap: 20px;
+    height: 95vh; /* full viewport height */
+    box-sizing: border-box;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--link-bg-color);
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 24px 10px;
+    border-radius: 5px;
+    box-shadow: var(--shadow-color) 0px 10px 8px -4px;
+    font-weight: var(--thin-font);
+}
+
+nav a:hover {
+    background-color: var(--link-bg-hover-color);
+    color: var(--link-hover-color);
+}
+
+nav a:active {
+    background-color: var(--link-bg-hover-color);
+    color: var(--link-hover-color);
+
+    box-shadow: inset var(--shadow-color) 0px 3px 8px -3px;
+}
+
+.nav-icon {
+    width: 40px;    /* icon size */
+    height: 40px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
